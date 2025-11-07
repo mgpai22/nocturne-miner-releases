@@ -6,12 +6,12 @@ Installation scripts for the nocturne-miner binary.
 
 ### Bash (Linux/macOS)
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mgpai22/midnight-miner-releases/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/mgpai22/nocturne-miner-releases/main/install.sh | bash
 ```
 
 ### PowerShell (Windows/Linux/macOS)
 ```powershell
-irm https://raw.githubusercontent.com/mgpai22/midnight-miner-releases/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/mgpai22/nocturne-miner-releases/main/install.ps1 | iex
 ```
 
 ## Installation
@@ -21,7 +21,7 @@ irm https://raw.githubusercontent.com/mgpai22/midnight-miner-releases/main/insta
 **Bash:**
 ```bash
 # Download install script
-curl -fsSL https://raw.githubusercontent.com/mgpai22/midnight-miner-releases/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/mgpai22/nocturne-miner-releases/main/install.sh -o install.sh
 chmod +x install.sh
 
 # Install binary to ~/.local/bin
@@ -31,7 +31,7 @@ chmod +x install.sh
 **PowerShell:**
 ```powershell
 # Download install script
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/mgpai22/midnight-miner-releases/main/install.ps1 -OutFile install.ps1
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/mgpai22/nocturne-miner-releases/main/install.ps1 -OutFile install.ps1
 
 # Install binary to PATH
 .\install.ps1
