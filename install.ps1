@@ -2,7 +2,6 @@
 # install.ps1 — download & install the right nocturne-miner binary for this machine.
 # Usage: .\install.ps1 [-Local]
 #   env: $env:BIN_DIR (default: ~/.local/bin on Linux/macOS, ~\AppData\Local\Programs on Windows)
-#        $env:NAME (installed executable name, default: nocturne-miner)
 #
 # Downloads from: https://cdn.nocturne.offchain.club/releases/
 
@@ -44,7 +43,6 @@ Options:
   -Local         Download to current directory instead of installing to PATH
 Env:
   `$env:BIN_DIR    Installation directory
-  `$env:NAME       Installed executable name (default: nocturne-miner)
 "@
     exit 0
 }
@@ -59,7 +57,6 @@ $defaultBinDir = if ($IsWindowsOS) {
 
 $CdnBase = "https://cdn.nocturne.offchain.club/releases"
 $BinDir = if ($env:BIN_DIR) { $env:BIN_DIR } else { $defaultBinDir }
-$Name = if ($env:NAME) { $env:NAME } else { "nocturne-miner" }
 $LocalInstall = $Local.IsPresent
 
 if ($LocalInstall) {
@@ -213,7 +210,7 @@ try {
     }
     
     # Set install path (add .exe on Windows if not present)
-    $installName = $Name
+    $installName = "nocturne-miner"
     if ($os -eq "windows" -and $installName -notlike "*.exe") {
         $installName += ".exe"
     }
@@ -227,7 +224,7 @@ try {
         chmod +x $installPath
     }
     
-    Write-Host "success: installed $Name -> $installPath" -ForegroundColor Green
+    Write-Host "success: installed nocturne-miner -> $installPath" -ForegroundColor Green
     
     # PATH hint (skip for local install)
     if (-not $LocalInstall) {

@@ -4,12 +4,10 @@ set -euo pipefail
 # install.sh — download & install the right nocturne-miner binary for this machine.
 # Usage: ./install.sh [--local]
 #   env: BIN_DIR=~/.local/bin (default)
-#        NAME=nocturne-miner (installed executable name, default)
 #
 # Downloads from: https://cdn.nocturne.offchain.club/releases/
 
 BIN_DIR="${BIN_DIR:-$HOME/.local/bin}"
-NAME="${NAME:-nocturne-miner}"
 LOCAL_INSTALL=false
 CDN_BASE="https://cdn.nocturne.offchain.club/releases"
 
@@ -30,7 +28,6 @@ Options:
   --local        Download to current directory instead of installing to PATH
 Env:
   BIN_DIR        Installation directory (default: ${BIN_DIR})
-  NAME           Installed executable name (default: ${NAME})
 EOF
       exit 0
       ;;
@@ -115,11 +112,11 @@ tar -xzf "$archive" -C "$tmpdir"
 bin_src="$(find "$tmpdir" -maxdepth 3 -type f -perm -111 -name 'nocturne-miner*' | head -n1 || true)"
 [[ -n "$bin_src" ]] || die "could not locate executable inside archive"
 
-install_path="${BIN_DIR}/${NAME}"
+install_path="${BIN_DIR}/nocturne-miner"
 mv "$bin_src" "$install_path"
 chmod +x "$install_path"
 
-echo "success: installed ${NAME} -> ${install_path}"
+echo "success: installed nocturne-miner -> ${install_path}"
 
 # PATH hint (skip for local install)
 if [[ "$LOCAL_INSTALL" != "true" ]]; then
